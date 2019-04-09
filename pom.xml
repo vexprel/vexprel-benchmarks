@@ -62,22 +62,24 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <byte-buddy.version>1.9.3</byte-buddy.version>
+        <vexprel.version>0.0.1.BUILD-SNAPSHOT</vexprel.version>
+        <ognl.version>3.2.10</ognl.version>
         <jmh.version>1.21</jmh.version>
+        <junit.version>4.12</junit.version>
     </properties>
 	
     <dependencies>
 
         <dependency>
-            <groupId>net.bytebuddy</groupId>
-            <artifactId>byte-buddy</artifactId>
-            <version>${byte-buddy.version}</version>
+            <groupId>com.github.danielfernandez</groupId>
+            <artifactId>vexprel</artifactId>
+            <version>${vexprel.version}</version>
         </dependency>
 
         <dependency>
             <groupId>ognl</groupId>
             <artifactId>ognl</artifactId>
-            <version>3.2.10</version>
+            <version>${ognl.version}</version>
         </dependency>
 
         <dependency>
@@ -95,7 +97,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <version>${junit.version}</version>
         </dependency>
 
     </dependencies>
