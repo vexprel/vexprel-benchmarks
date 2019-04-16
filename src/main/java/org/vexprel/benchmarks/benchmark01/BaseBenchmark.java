@@ -22,7 +22,7 @@ public class BaseBenchmark {
 
 
 
-    User buildUser() {
+    public User buildUser() {
         return new User("John", "Apricot");
     }
 

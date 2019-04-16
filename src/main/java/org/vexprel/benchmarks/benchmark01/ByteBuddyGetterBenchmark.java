@@ -1,26 +1,31 @@
 package org.vexprel.benchmarks.benchmark01;
 
-import com.github.danielfernandez.bytecodetest.ExecutorFactory;
-import com.github.danielfernandez.bytecodetest.GetterExecutor;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.Setup;
+import org.vexprel.standard.action.ByteCodeGenStandardExpressionActionFactory;
+import org.vexprel.standard.action.StandardExpressionAction;
+import org.vexprel.standard.action.StandardExpressionActionFactory;
+import org.vexprel.standard.step.ObjectPropertyExpressionStep;
+import org.vexprel.standard.step.StandardExpressionStep;
 
 public class ByteBuddyGetterBenchmark extends BaseBenchmark {
 
     private User user;
-    private GetterExecutor getterExecutor;
+    private StandardExpressionAction getterAction;
 
 
     @Setup
     public void setup() throws Exception {
         this.user = buildUser();
-        this.getterExecutor = ExecutorFactory.buildGetterExecutor(User.class, "name");
+        final StandardExpressionStep step = new ObjectPropertyExpressionStep("name");
+        final StandardExpressionActionFactory factory = new ByteCodeGenStandardExpressionActionFactory(true);
+        this.getterAction = factory.build(step, User.class);
     }
 
 
     @Benchmark
     public String benchmark() throws Exception {
-        return (String) this.getterExecutor.execute(this.user);
+        return (String) this.getterAction.execute(this.user);
     }
 
 
