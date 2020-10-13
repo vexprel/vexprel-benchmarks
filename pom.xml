@@ -85,7 +85,7 @@
         <vexprel.version>0.0.1.BUILD-SNAPSHOT</vexprel.version>
         <ognl.version>3.2.10</ognl.version>
         <jmh.version>1.21</jmh.version>
-        <junit.version>4.12</junit.version>
+        <junit.version>4.13.1</junit.version>
     </properties>
 	
     <dependencies>
